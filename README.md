@@ -24,8 +24,4 @@ Evidencia: GA7-220501096-AA2-EV01
 - SELECT: listar todos los productos
 - UPDATE: actualizar datos de un producto
 - DELETE: eliminar un producto por ID
-```
 
-**Paso 4** — Bajar hasta **Commit new file** → escribir en el campo:
-```
-Agregar README
