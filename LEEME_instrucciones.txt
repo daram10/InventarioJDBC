@@ -1,0 +1,80 @@
+# INSTRUCCIONES DE INSTALACIÓN Y PRUEBA
+# Proyecto: Inventario Supermercado
+# Autora: Danna Ramirez
+# ============================================================
+
+## ── EV01: Java + JDBC (Aplicación de consola) ──────────────
+
+### Qué necesitas instalar:
+1. Java JDK 17  → https://adoptium.net  (descargar Windows x64)
+2. NetBeans 21  → https://netbeans.apache.org/front/main/download/
+3. MySQL 8.0    → ya lo tienes
+4. Conector MySQL para Java (JAR) → https://dev.mysql.com/downloads/connector/j/
+   (descargar "Platform Independent ZIP", extraer el .jar)
+
+### Pasos para correr EV01:
+1. Abrir NetBeans > File > New Project > Java > Java Application
+   - Nombre del proyecto: InventarioJDBC
+   - Desmarcar "Create Main Class" (ya tienes el código)
+
+2. Copiar las carpetas src/inventario/* dentro de src/ del proyecto NetBeans.
+
+3. Agregar el JAR del conector MySQL:
+   - Clic derecho sobre el proyecto > Properties > Libraries > Add JAR/Folder
+   - Seleccionar el archivo mysql-connector-j-8.x.x.jar
+
+4. Ejecutar el script SQL en MySQL:
+   - Abrir MySQL Workbench
+   - Abrir el archivo sql/inventario.sql
+   - Ejecutar todo (Ctrl+Shift+Enter)
+
+5. Verificar contraseña en Conexion.java:
+   - Abrir src/inventario/conexion/Conexion.java
+   - Cambiar CLAVE = "root" por tu contraseña real de MySQL
+
+6. Ejecutar: clic derecho sobre Main.java > Run File
+   - Ver los resultados del CRUD en la pestaña Output de NetBeans
+
+### Dónde se prueba:
+   → En la CONSOLA (pestaña Output de NetBeans)
+
+
+## ── EV02: Java + Servlets + JSP (Aplicación web) ───────────
+
+### Qué necesitas instalar:
+(Los mismos del EV01 más:)
+5. Apache Tomcat 10.x → https://tomcat.apache.org/download-10.cgi
+   (descargar "Core ZIP", extraer en C:\tomcat)
+
+### Pasos para correr EV02:
+1. Abrir NetBeans > File > New Project > Java with Ant > Java Web > Web Application
+   - Nombre: inventario-web
+   - Server: Apache Tomcat (agregar instalación si pide)
+   - Java EE Version: Jakarta EE 10
+
+2. Copiar los archivos:
+   - src/java/inventario/* → dentro de Source Packages del proyecto
+   - web/index.jsp        → dentro de Web Pages
+   - web/editar.jsp       → dentro de Web Pages
+   - web/css/estilos.css  → dentro de Web Pages/css/
+   - web/WEB-INF/web.xml  → reemplazar el existente
+
+3. Agregar el JAR del conector MySQL (igual que en EV01).
+
+4. Ejecutar el script SQL (mismo del EV01, ya lo tienes).
+
+5. Verificar contraseña en Conexion.java.
+
+6. Ejecutar el proyecto: botón verde Run (Shift+F6)
+   - NetBeans desplegará el proyecto en Tomcat automáticamente
+   - Se abrirá el navegador en: http://localhost:8080/inventario-web/productos
+
+### Dónde se prueba:
+   → En el NAVEGADOR WEB (Chrome o Firefox)
+   → URL: http://localhost:8080/inventario-web/productos
+
+### Qué puedes hacer en el navegador:
+   - Ver la lista de productos en la tabla
+   - Llenar el formulario y hacer clic en "Guardar producto" → INSERT
+   - Hacer clic en "Editar" → UPDATE
+   - Hacer clic en "Eliminar" → DELETE
